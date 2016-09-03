@@ -1,0 +1,19 @@
+<?php
+    $seconds = strtotime($row['news_adding_time']);
+    $secondsc = strtotime(date("H:i:s")) + 4 * 3600;
+    
+    $m = date('m',$secondsc - $seconds);
+    $d = date('d',$secondsc - $seconds);
+    $h = date('H',$secondsc - $seconds);
+    $min = date('i',$secondsc - $seconds);
+    
+    if($d > 07){
+        echo "By ".$row['admin_name']." at - ".date($row['news_adding_time']);echo "<br>";
+    }
+    else if($d > 01){
+        echo "By ".$row['admin_name']." at ".($d - 1)." - days ago";echo "<br>";
+    }
+    else{
+        echo "By ".$row['admin_name']." at ".$h." - hours ".$min." - minutes ago";
+    }
+?>
